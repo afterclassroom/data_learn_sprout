@@ -6,6 +6,9 @@ Rails.application.routes.draw do
    root 'tasks#index'
    get 'tasks/cleandb' => 'tasks#cleandb'
    get 'tasks/makedata' => 'tasks#makedata'
+   get 'tasks/school_csv' => 'tasks#school_csv'
+   get 'tasks/teacher_csv' => 'tasks#teacher_csv'
+   get 'tasks/student_csv' => 'tasks#student_csv'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

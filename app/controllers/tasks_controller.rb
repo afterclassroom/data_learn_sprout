@@ -16,19 +16,42 @@ class TasksController < ApplicationController
 	def makedata
 
 		#add 100 schools
-		(1..100).each do |i|
-			School.create_school
-		end
+		# (1..100).each do |i|
+		# 	School.create_school
+		# end
+		School.create_school
 
-		#add 200 teachers
-		(1..200).each do |i|
+		#add 10 teachers
+		(1..10).each do |i|
 			Teacher.create_teacher
 		end
 
-		#add 1000 students
-		(1..1000).each do |i|
+		#add 20 students
+		(1..20).each do |i|
 			Student.create_student
 		end
+
+		#add 10 Term
+		(1..10).each do |i|
+			Term.create_term
+		end
+
+		#add 10 course
+		(1..10).each do |i|
+			Course.create_course
+		end
+
+		#add 10 section
+		(1..10).each do |i|
+			Section.create_section
+		end
+
+		#add 10 course_grade
+		(1..10).each do |i|
+			CourseGrade.create_course_grade
+		end
+
+
 
 		redirect_to "/"
 	end

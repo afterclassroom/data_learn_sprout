@@ -6,9 +6,11 @@ Rails.application.routes.draw do
    root 'tasks#index'
    get 'tasks/cleandb' => 'tasks#cleandb'
    get 'tasks/makedata' => 'tasks#makedata'
-   get 'tasks/school_csv' => 'tasks#school_csv'
-   get 'tasks/teacher_csv' => 'tasks#teacher_csv'
-   get 'tasks/student_csv' => 'tasks#student_csv'
+   get 'tasks/export_schools' => 'tasks#export_schools'
+   get 'tasks/export_teachers' => 'tasks#export_teachers'
+   get 'tasks/export_students' => 'tasks#export_students'
+   get 'tasks/export_courses' => 'tasks#export_courses'
+   get 'tasks/export_rosters' => 'tasks#export_rosters'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

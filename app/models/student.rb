@@ -11,6 +11,7 @@ class Student < ActiveRecord::Base
 			first_name:  Faker::Name.first_name ,
 			middle_name: Faker::Name.suffix  ,
 			last_name: Faker::Name.last_name,
+			email: Faker::Internet.safe_email,
 			gender: gender_array.shuffle.sample,
 			ethnicity: Faker::Address.city,
 			lunch_status: lunch_status_array.shuffle.sample,
@@ -31,9 +32,11 @@ class Student < ActiveRecord::Base
 
 	def self.to_csv(options = {})
 		CSV.generate(options) do |csv|
-			csv << column_names
+			#csv << column_names
+			csv << ["id", "name", "email", "phone", "address"]
 			all.each do |product|
-				csv << product.attributes.values_at(*column_names)
+				#csv << product.attributes.values_at(*column_names)
+				csv << ["#{product.id}", "#{product.first_name} #{product.middle_name} #{product.last_name}", "#{product.email}", "#{product.phone}", "#{product.address_street}, #{product.address_city}, #{product.address_state}  #{product.address_zip}"]
 			end
 		end
 	end

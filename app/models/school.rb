@@ -2,6 +2,10 @@ class School < ActiveRecord::Base
 	require 'faker'
 
 	has_many :teachers, :dependent => :destroy
+	has_many :students, :dependent => :destroy
+	has_many :courses, :dependent => :destroy
+	has_many :terms, :dependent => :destroy
+	has_many :sections, :dependent => :destroy
 
 	def self.create_school
 		School.create!({

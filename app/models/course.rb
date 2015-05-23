@@ -1,6 +1,9 @@
 class Course < ActiveRecord::Base
 	require 'faker'
 
+	belongs_to :school
+	has_many :sections, :dependent => :destroy
+
 	def self.create_course
 		Course.create!({
 			name:  Faker::Name.name,

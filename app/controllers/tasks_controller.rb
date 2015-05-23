@@ -51,12 +51,15 @@ class TasksController < ApplicationController
 			CourseGrade.create_course_grade
 		end
 
-
+		#add 10 Roster
+		(1..10).each do |i|
+			Roster.create_roster
+		end
 
 		redirect_to "/"
 	end
 
-	def school_csv
+	def export_schools
 		@school = School.all
 
 		respond_to do |format|
@@ -65,7 +68,8 @@ class TasksController < ApplicationController
 		end
 	end
 
-	def teacher_csv
+	def export_teachers
+		#@teacher = Teacher.where(:id =>1)
 		@teacher = Teacher.all
 
 		respond_to do |format|
@@ -74,12 +78,30 @@ class TasksController < ApplicationController
 		end
 	end
 
-	def student_csv
+	def export_students
 		@student = Student.all
 
 		respond_to do |format|
 			format.html
 			format.csv { send_data @student.to_csv }
+		end
+	end
+
+	def export_courses
+		@course = Section.includes(:teacher, :course, :term)
+
+		respond_to do |format|
+			format.html
+			format.csv { send_data @course.to_csv }
+		end
+	end
+
+	def export_rosters
+		@roster = Roster.includes(:section)
+
+		respond_to do |format|
+			format.html
+			format.csv { send_data @roster.to_csv }
 		end
 	end
 

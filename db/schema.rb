@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512083313) do
+ActiveRecord::Schema.define(version: 20150523024329) do
 
   create_table "acts", force: true do |t|
     t.integer "student_id"
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20150512083313) do
     t.string  "address_street"
     t.string  "address_zip"
     t.integer "number"
+    t.string  "email",          default: ""
   end
 
   create_table "teachers", force: true do |t|
@@ -134,6 +135,7 @@ ActiveRecord::Schema.define(version: 20150512083313) do
     t.string  "address_street"
     t.string  "address_zip"
     t.integer "number"
+    t.string  "email",          default: ""
   end
 
   create_table "terms", force: true do |t|
